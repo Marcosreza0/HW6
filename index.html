@@ -1,16 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-    <h1>Hello, world!</h1>\
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Libraries Example</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Include Lodash library -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21"></script>
+</head>
+<body>
+
+<!-- Content -->
+<h1>Welcome to My JavaScript Libraries Example</h1>
+
+<!-- Chart Example -->
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<!-- Fetch Data Example -->
+<button id="fetchDataBtn">Fetch Data</button>
+<p id="dataContainer">Fetched Data Will Appear Here</p>
+
+<!-- Lodash Example -->
+<p id="lodashExample">Result of Lodash Operation: </p>
+
+<script>
+    // Chart.js code
+    $(document).ready(function() {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Example Data',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+
+    // Axios code
+    $("#fetchDataBtn").click(function() {
+        axios.get('https://jsonplaceholder.typicode.com/todos/1')
+            .then(function (response) {
+                $('#dataContainer').text('Fetched Data: ' + JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.error('Error fetching data:', error);
+            });
+    });
+
+    // Lodash code
+    var lodashResult = _.join(['Hello', 'Lodash'], ' ');
+    $("#lodashExample").append(lodashResult);
+</script>
+
+</body>
 </html>
