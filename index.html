@@ -23,7 +23,7 @@
 
 <!-- Fetch Data Example -->
 <button id="fetchDataBtn">Fetch Data</button>
-<p id="dataContainer">Total Number of Games for each month (Regular Season)</p>
+<p id="dataContainer">any of the data will be applied here.</p>
 
 <!-- Lodash Example -->
 <p id="lodashExample">What we are pulling from the chart:</p>
@@ -38,7 +38,7 @@
                 labels: ['January', 'February', 'March', 'April', 'May'],
                 datasets: [{
                     label: 'Number of OU basketball Games Per month',
-                    data: [4, 3, 1, 0,0],
+                    data: [8, 7, 3, 0,0],
                     backgroundColor: 'rgba(132, 23, 25)',
                     borderColor: 'rgba(132, 23, 25)',
                     borderWidth: 1
@@ -66,7 +66,7 @@
     });
 
     // Lodash code
-    var lodashResult = _.join(['Total'  'Games']);
+    var lodashResult = _.join(['Total' + 'Games']);
     $("#lodashExample").append(lodashResult);
 </script>
 
